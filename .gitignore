@@ -18,7 +18,6 @@ coverage/
 # Reports
 reports/
 *.xml
-*.json
 *.html
 
 # Dependency directories

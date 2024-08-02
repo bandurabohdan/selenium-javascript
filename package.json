@@ -1,0 +1,19 @@
+{
+  "name": "selenium-javascript",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --no-timeouts index.js"
+  },
+  "keywords": [],
+  "author": "Bandura Bohdan",
+  "license": "ISC",
+  "dependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "dotenv": "^16.4.5",
+    "mocha": "^10.7.0",
+    "selenium-webdriver": "^4.23.0"
+  }
+}
