@@ -1,5 +1,5 @@
-import HomePage from "./pages/HomePage.js";
-import SignUpPage from "./pages/SignUpPage.js";
+import HomePage from "../Pages/HomePage.js";
+import SignUpPage from "../Pages/SignUpPage.js";
 
 class PageFactory {
 

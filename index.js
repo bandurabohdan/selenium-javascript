@@ -1,5 +1,5 @@
-import getDriver from "./DriverFactory.js";
-import PageFactory from "./PageFactory.js"
+import getDriver from "./Factories/DriverFactory.js";
+import PageFactory from "./Factories/PageFactory.js"
 
 describe('Test suit for conduit', () => {
 
