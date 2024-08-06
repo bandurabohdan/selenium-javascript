@@ -39,16 +39,15 @@ jobs:
 
       - name: Run Selenium tests
         run: npm run test
+
+      - name: list
+        if: failure()
+        run: ls -la
           
-  upload-artifacts:
-    runs-on: ubuntu-latest
-    needs: test
-    if: failure()
-  
-    steps:
-       - name: Upload artifact
-         uses: actions/upload-artifact@v3
-         with:
+      - name: Upload artifact
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
           name: test-artifact
           path: ./failedScreenshots
   
