@@ -1,6 +1,6 @@
 import 'dotenv/config'
 import {Builder, Browser} from 'selenium-webdriver'
-const chrome = require('selenium-webdriver/chrome');
+import chrome from 'selenium-webdriver/chrome.js'
 
 const getDriver = (browser) => {
   let driver;
