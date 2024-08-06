@@ -16,32 +16,32 @@ jobs:
           echo "USER_EMAIL=${{ vars.USER_EMAIL }}"
           echo "USERNAME=${{ vars.USERNAME }}"
           echo "USER_PASSWORD=${{ secrets.USER_PASSWORD }}"
-        # env:
-        #   BASE_URL: ${{ vars.BASE_URL }}
-        #   BASE_API_URL: ${{ vars.BASE_API_URL }}
-        #   USER_EMAIL: ${{ vars.USER_EMAIL }}
-        #   USERNAME: ${{ vars.USERNAME }}
-        #   USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
+        env:
+          BASE_URL: ${{ vars.BASE_URL }}
+          BASE_API_URL: ${{ vars.BASE_API_URL }}
+          USER_EMAIL: ${{ vars.USER_EMAIL }}
+          USERNAME: ${{ vars.USERNAME }}
+          USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
 
-      # - name: Setup Node.js
-      #   uses: actions/setup-node@v3
-      #   with:
-      #     node-version: '22.2.0'
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22.2.0'
 
-      # - name: Install dependencies
-      #   run: npm install
+      - name: Install dependencies
+        run: npm install
 
-      # - name: Install Chrome browser
-      #   run: |
-      #     sudo apt update
-      #     sudo apt install -y google-chrome-stable
+      - name: Install Chrome browser
+        run: |
+          sudo apt update
+          sudo apt install -y google-chrome-stable
 
-      # - name: Install Chromedriver
-      #   run: |
-      #     curl -sSLO https://storage.googleapis.com/chrome-for-testing-public/127.0.6533.88/linux64/chromedriver-linux64.zip
-      #     unzip chromedriver-linux64.zip
-      #     sudo mv chromedriver-linux64/chromedriver /usr/local/bin/chromedriver
-      #     sudo chmod +x /usr/local/bin/chromedriver
+      - name: Install Chromedriver
+        run: |
+          curl -sSLO https://storage.googleapis.com/chrome-for-testing-public/127.0.6533.88/linux64/chromedriver-linux64.zip
+          unzip chromedriver-linux64.zip
+          sudo mv chromedriver-linux64/chromedriver /usr/local/bin/chromedriver
+          sudo chmod +x /usr/local/bin/chromedriver
 
-      # - name: Run Selenium tests
-      #   run: npm run test
+      - name: Run Selenium tests
+        run: npm run test
