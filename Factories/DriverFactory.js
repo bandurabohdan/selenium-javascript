@@ -1,8 +1,10 @@
 import 'dotenv/config'
 import {Builder, Browser} from 'selenium-webdriver'
+const chrome = require('selenium-webdriver/chrome');
 
 const getDriver = (browser) => {
   let driver;
+  let options;
 
   switch (browser) {
     case 'firefox':
@@ -17,8 +19,11 @@ const getDriver = (browser) => {
       break;
     case 'chrome':
     default:
+      options = new chrome.Options()
+      options.addArguments('--headless=new')
       driver = new Builder()
         .forBrowser(Browser.CHROME)
+        .setChromeOptions(options)
         .build();
       break;
   }
