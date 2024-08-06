@@ -45,8 +45,6 @@ class ArticlePage extends BasePage {
     })
 
     response = await response.json()
-    console.log(response);
-
   }
 }
 
