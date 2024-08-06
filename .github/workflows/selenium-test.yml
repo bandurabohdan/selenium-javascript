@@ -39,9 +39,15 @@ jobs:
 
       - name: Run Selenium tests
         run: npm run test
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v3
-        with:
+          
+  upload-artifacts:
+    runs-on: ubuntu-latest
+    needs: test
+  
+    steps:
+       - name: Upload artifact
+         uses: actions/upload-artifact@v3
+         with:
           name: test-artifact
           path: failedScreenshots
+  
