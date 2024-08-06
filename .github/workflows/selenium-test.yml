@@ -15,6 +15,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Export env variables
+        env:
+          BASE_URL: ${{ vars.BASE_URL }}
+          BASE_API_URL: ${{ vars.BASE_API_URL }}
+          USER_EMAIL: ${{ vars.USER_EMAIL }}
+          USERNAME: ${{ vars.USERNAME }}
+          USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
+
+
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
