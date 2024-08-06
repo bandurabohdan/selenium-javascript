@@ -1,12 +1,6 @@
 name: Run Selenium Tests
 
 on: workflow_dispatch
-  # push:
-  #   branches:
-  #     - main
-  # pull_request:
-  #   branches:
-  #     - main
 
 jobs:
   test:
@@ -23,10 +17,10 @@ jobs:
           echo "USERNAME=$USERNAME" >> $GITHUB_ENV
           echo "USER_PASSWORD=$USER_PASSWORD" >> $GITHUB_ENV
         env:
-          BASE_URL: ${{ env.BASE_URL }}
-          BASE_API_URL: ${{ env.BASE_API_URL }}
-          USER_EMAIL: ${{ env.USER_EMAIL }}
-          USERNAME: ${{ env.USERNAME }}
+          BASE_URL: ${{ vars.BASE_URL }}
+          BASE_API_URL: ${{ vars.BASE_API_URL }}
+          USER_EMAIL: ${{ vars.USER_EMAIL }}
+          USERNAME: ${{ vars.USERNAME }}
           USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
 
       - name: Setup Node.js
