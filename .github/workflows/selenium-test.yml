@@ -47,6 +47,7 @@ jobs:
           name: test-artifact
           path: ./failedScreenshots
       - name: Store allure results
+        if: always()
         uses: actions/upload-artifact@v3
         with:
           name: allure-results
@@ -56,6 +57,7 @@ jobs:
           
   generate-report:
     runs-on: ubuntu-latest
+    if: always()
     needs: test
     name: Generate report
     steps:
