@@ -58,11 +58,11 @@ describe('Test suit for conduit', () => {
     await profilePage.isArticleAdded(articleTitle)
   })
 
-  it.only('Login with API', async () => {
+  it('Login with API', async () => {
     const signInPage = pageFactory.getSignInPage()
     const articlePage = pageFactory.getArticlePage()
 
-    // const token = await signInPage.loginUsingAPI()
+    const token = await signInPage.loginUsingAPI()
     await articlePage.publishArticleUsingAPI(token)
   })
 })
