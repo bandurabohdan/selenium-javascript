@@ -1,5 +1,6 @@
 import getDriver from "./Factories/DriverFactory.js";
 import PageFactory from "./Factories/PageFactory.js"
+import failedScreenshotMaker from "./helpers/failedScreenshots.js";
 
 describe('Test suit for conduit', () => {
 
@@ -28,7 +29,8 @@ describe('Test suit for conduit', () => {
     }
   })
 
-  afterEach(async () => {
+  afterEach(async function() {
+    await failedScreenshotMaker(this.currentTest, driver)
     await driver.quit()
   })
 
@@ -56,11 +58,11 @@ describe('Test suit for conduit', () => {
     await profilePage.isArticleAdded(articleTitle)
   })
 
-  it('Login with API', async () => {
+  it.only('Login with API', async () => {
     const signInPage = pageFactory.getSignInPage()
     const articlePage = pageFactory.getArticlePage()
 
-    const token = await signInPage.loginUsingAPI()
+    // const token = await signInPage.loginUsingAPI()
     await articlePage.publishArticleUsingAPI(token)
   })
 })

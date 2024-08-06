@@ -53,3 +53,4 @@ mochawesome-report/
 # Temporary files
 tmp/
 temp/
+failedScreenshots
