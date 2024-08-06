@@ -39,10 +39,6 @@ jobs:
 
       - name: Run Selenium tests
         run: npm run test
-
-      - name: list
-        if: failure()
-        run: ls -la
           
       - name: Upload artifact
         if: failure()
