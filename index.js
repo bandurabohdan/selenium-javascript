@@ -1,6 +1,7 @@
 import getDriver from "./Factories/DriverFactory.js";
 import PageFactory from "./Factories/PageFactory.js"
 import failedScreenshotMaker from "./helpers/failedScreenshots.js";
+import { description } from 'allure-js-commons'
 
 describe('Test suit for conduit', () => {
 

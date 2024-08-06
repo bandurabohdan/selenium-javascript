@@ -1,5 +1,6 @@
 import { By, until } from "selenium-webdriver";
 import { expect } from "chai";
+import { step } from 'allure-js-commons'
 
 class BasePage {
 
@@ -8,7 +9,9 @@ class BasePage {
   }
 
   async navigateTo(link) {
-    await this.driver.get(link)
+    await step(`Navigate to ${link}`, async () => {
+      await this.driver.get(link)
+    })
   }
 
   async isUserSignedIn(userName){
@@ -45,31 +48,43 @@ class BasePage {
   }
 
   async click(locator) {
-    if(typeof(locator) !== 'string') {
-      await locator.click()
-      return
-    }
-    const element = await this.getElement(locator)
-    await element.click()
+    await step(`Click on element ${locator}`, async() => {
+      if(typeof(locator) !== 'string') {
+        await locator.click()
+        return
+      }
+      const element = await this.getElement(locator)
+      await element.click()
+    })
   }
 
   async write(locator, text) {
-    if(typeof(locator) !== 'string') {
-      await locator.sendKeys(text)
-      return
-    }
-    const element = await this.getElement(locator)
-    await element.sendKeys(text)
+    await step(`Type in element ${locator} text - ${text}`, async() => {
+      if(typeof(locator) !== 'string') {
+        await locator.sendKeys(text)
+        return
+      }
+      const element = await this.getElement(locator)
+      await element.sendKeys(text)
+    })
   }
 
   async getText(locator) {
-    if(typeof(locator) !== 'string') {
-      await this.driver.wait(until.elementTextMatches(locator, /\S+/), 10000)
-      return await locator.getText()
-    }
-    const element = await this.getElement(locator)
-    await this.driver.wait(until.elementTextMatches(element, /\S+/), 10000)
-    return await element.getText()
+    let element;
+    let result;
+
+    await step(`Get text from element ${locator}`, async() => {
+      if(typeof(locator) !== 'string') {
+        await this.driver.wait(until.elementTextMatches(locator, /\S+/), 10000)
+        result = await locator.getText()
+        return
+      }
+      element = await this.getElement(locator)
+      await this.driver.wait(until.elementTextMatches(element, /\S+/), 10000)
+      result = await element.getText()
+    })
+
+    return result
   }
 
   async quitDriver() {

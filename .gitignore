@@ -54,3 +54,4 @@ mochawesome-report/
 tmp/
 temp/
 failedScreenshots
+allure-results

@@ -5,7 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --no-timeouts index.js"
+    "test": "mocha --no-timeouts --reporter mocha-multi-reporters --reporter-options configFile=.mocharc.json index.js"
   },
   "keywords": [],
   "author": "Bandura Bohdan",
@@ -15,6 +15,11 @@
     "chai": "^5.1.1",
     "dotenv": "^16.4.5",
     "mocha": "^10.7.0",
+    "mocha-multi-reporters": "^1.5.1",
     "selenium-webdriver": "^4.23.0"
+  },
+  "devDependencies": {
+    "allure-commandline": "^2.30.0",
+    "allure-mocha": "^3.0.0-beta.8"
   }
 }
