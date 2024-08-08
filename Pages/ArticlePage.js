@@ -1,5 +1,6 @@
 import { faker } from "@faker-js/faker";
 import BasePage from "./BasePage.js";
+import { expect } from "chai";
 
 class ArticlePage extends BasePage {
 
@@ -45,6 +46,16 @@ class ArticlePage extends BasePage {
     })
 
     response = await response.json()
+
+    const { slug, title, description, body, tagList, author } = response.article
+
+    expect(slug).to.contains(this.articleTitle.toLowerCase())
+    expect(title).to.eq(this.articleTitle.toLowerCase())
+    expect(description).to.eq(this.articleDescription)
+    expect(body).to.eq(this.articleBody)
+    expect(tagList).to.be.an('array').that.is.empty
+    expect(author.username).to.eq(process.env.USERNAME)
+
   }
 }
 

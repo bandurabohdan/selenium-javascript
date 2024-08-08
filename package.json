@@ -5,7 +5,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --no-timeouts --reporter mocha-multi-reporters --reporter-options configFile=.mocharc.json index.js"
+    "test": "mocha --no-timeouts --reporter mocha-multi-reporters --reporter-options configFile=.mocharc.json index.js",
+    "build:report": "npx allure serve allure-results"
   },
   "keywords": [],
   "author": "Bandura Bohdan",
@@ -14,6 +15,7 @@
     "@faker-js/faker": "^8.4.1",
     "chai": "^5.1.1",
     "dotenv": "^16.4.5",
+    "failed-screenshot-maker": "^1.0.7",
     "mocha": "^10.7.0",
     "mocha-multi-reporters": "^1.5.1",
     "selenium-webdriver": "^4.23.0"

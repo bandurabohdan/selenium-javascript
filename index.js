@@ -1,7 +1,6 @@
 import getDriver from "./Factories/DriverFactory.js";
 import PageFactory from "./Factories/PageFactory.js"
-import failedScreenshotMaker from "./helpers/failedScreenshots.js";
-import { description } from 'allure-js-commons'
+import failedScreenshotMaker from "failed-screenshot-maker";
 
 describe('Test suit for conduit', () => {
 
@@ -31,7 +30,9 @@ describe('Test suit for conduit', () => {
   })
 
   afterEach(async function() {
-    await failedScreenshotMaker(this.currentTest, driver)
+    if(!this.currentTest.title.includes('API')) {
+      await failedScreenshotMaker(this.currentTest, driver)
+    }
     await driver.quit()
   })
 
@@ -59,7 +60,7 @@ describe('Test suit for conduit', () => {
     await profilePage.isArticleAdded(articleTitle)
   })
 
-  it('Login with API', async () => {
+  it('Login and create artice using API', async () => {
     const signInPage = pageFactory.getSignInPage()
     const articlePage = pageFactory.getArticlePage()
 

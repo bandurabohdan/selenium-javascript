@@ -1,3 +1,4 @@
+import { expect } from "chai";
 import BasePage from "./BasePage.js";
 
 class SignInPage extends BasePage {
@@ -36,7 +37,14 @@ class SignInPage extends BasePage {
     })
 
     response = await response.json()
-    return response.user.token
+
+    const { username, email, token } = response.user
+
+    expect(username).to.eq(process.env.USERNAME)
+    expect(email).to.eq(process.env.USER_EMAIL)
+    expect(token).to.be.a('string')
+
+    return token
   }
 }
 
