@@ -33,6 +33,10 @@ This repository contains automation scripts for web testing using Selenium with 
     npm install
     ```
 
+## Report
+
+The report is located at https://bandurabohdan.github.io/selenium-javascript/
+
 ## Usage
 
 ### Running Tests
